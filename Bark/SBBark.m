@@ -47,7 +47,7 @@
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"Send Email", @"Create GitHub Issue", nil];
-    [actionSheet showInView:[self window]];
+    [actionSheet showInView:[self window].topController.view];
 }
 
 #pragma mark - UIActionSheetDelegate
@@ -130,7 +130,7 @@
             [mailer addAttachmentData:data mimeType:@"image/png" fileName:@"screenshot"];
         }
         
-        [[self window].rootViewController presentViewController:mailer animated:YES completion:nil];
+        [[self window].topController presentViewController:mailer animated:YES completion:nil];
     }
     else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
